@@ -10,6 +10,9 @@ This repository contains the following elements:
 # Installation instructions
 To import the Event-B project under Rodin, you should select the option Import under the menu File and follow these steps:
 <img width="280" alt="replay" src="https://github.com/AmelMammar/AMAN/assets/60692373/cacca64e-5c45-4702-a24f-76c9a0440470">
+
+<img width="438" alt="selectP" src="https://github.com/AmelMammar/SpeedControlSystem/assets/60692373/ef875cec-067c-4514-9b85-2aa7f188471c">
+
 //////////////////////////
 
 
