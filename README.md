@@ -12,19 +12,8 @@ To import the Event-B project under Rodin, you should select the option Import u
 <img width="240" alt="replay" src="https://github.com/AmelMammar/AMAN/assets/60692373/cacca64e-5c45-4702-a24f-76c9a0440470"> <img width="240" alt="replay" src="https://github.com/AmelMammar/AMAN/assets/60692373/ae275752-1d9d-4341-92a3-857339505d3d">
 <img width="240" alt="replay" src="https://github.com/AmelMammar/AMAN/assets/60692373/bd541b70-ee4d-440e-80e7-96fd636ff2ac">
 
-//////////////////////////
-
-
-<img width="280" alt="replay" src="https://github.com/AmelMammar/SpeedControlSystem/assets/60692373/f56d0414-bcab-4ccb-a5bb-f9bdb131475f">
-
-<img width="438" alt="selectP" src="https://github.com/AmelMammar/SpeedControlSystem/assets/60692373/ef875cec-067c-4514-9b85-2aa7f188471c">
-
-<img width="425" alt="file" src="https://github.com/AmelMammar/SpeedControlSystem/assets/60692373/73fdcdb0-fbb4-436f-b4b2-755a40f60ce8">
-
-
 After importing the Zip file STTT.zip under the Rodin platform (Version: 3.8.0-af2f57e1e), some proofs may appear as not discharged. So, you should replay all the proofs by a right click as depicted by the following figure:
 
-<img width="280" alt="replay" src="https://github.com/AmelMammar/SpeedControlSystem/assets/60692373/6968a863-570f-4b90-a377-8fc70a1823d3">
 
 To discharge the interactive proofs, we have imported the AtelierB provers, ProB Disprover and the SMT provers as depicted by the following figure:
 
