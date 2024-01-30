@@ -16,7 +16,6 @@ After importing the Zip file STTT2024.zip under the Rodin platform (Version: 3.8
 
 <img width="240" alt="replay" src="https://github.com/AmelMammar/AMAN/assets/60692373/6fec0a24-f2c7-4900-a46c-759625d2626f">
 
-
 To discharge the interactive proofs, we have imported the AtelierB provers, ProB Disprover and the SMT provers as depicted by the following figure:
 
 ![ProBDis](https://github.com/AmelMammar/SpeedControlSystem/assets/60692373/d97f69ce-3535-4e69-95d0-7dc052816da4)
