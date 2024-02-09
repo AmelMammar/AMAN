@@ -1,0 +1,1339 @@
+{
+  "description": "File created by ProB Tcl/Tk",
+  "transitionList": [
+   {
+   "name": "$setup_constants",
+   "destState": {
+        "Minutes": "{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59}",
+        "zoomLevels": "{15,20,25,30,35,40,45}",
+        "Hours": "{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23}",
+        "Seconds": "{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59}",
+        "Labels": "{Elements4,Elements5,Elements6,Elements7,Elements8,Elements9,Elements10,Elements11,Elements12,Elements13}",
+        "sep": "3",
+        "step": "10"
+     },
+   "destStateNotChanged": [
+     ]
+   },
+   {
+   "name": "$initialise_machine",
+   "destState": {
+        "arrivalH_T": "{(0|->{})}",
+        "arrivalM_T": "{(0|->{})}",
+        "blockedZones_T": "{(0|->{})}",
+        "clickedElement": "nothing",
+        "curTimeH": "0",
+        "curTimeM": "0",
+        "curTimeS": "0",
+        "diplayedLabels": "{}",
+        "holdLabels_T": "{(0|->{})}",
+        "isStopped": "FALSE",
+        "labels_T": "{(0|->{})}",
+        "mousePosition": "nothing",
+        "mouseState": "released",
+        "newArrivalH_T": "{(0|->{})}",
+        "newArrivalM_T": "{(0|->{})}",
+        "requests_T": "{(0|->{})}",
+        "selectedElement": "nothing",
+        "zoomLevel": "15"
+     },
+   "destStateNotChanged": [
+     ]
+   },
+   {
+   "name": "addLabel",
+   "description": "add a plane",
+   "params": {
+        "l": "Elements4",
+        "t": "0"
+     },
+   "destState": {
+        "labels_T": "{(0|->{Elements4})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "blockedZones_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{}",
+        "landingLabs": "{}",
+        "ns": "10",
+        "nt": "10",
+        "labsSch": "{}",
+        "toDisp": "{}",
+        "t": "10",
+        "nh": "0",
+        "nm": "0",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{})}",
+        "arrivalM_T": "{(0|->{}),(10|->{})}",
+        "blockedZones_T": "{(0|->{}),(10|->{})}",
+        "curTimeS": "10",
+        "holdLabels_T": "{(0|->{}),(10|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{})}",
+        "requests_T": "{(0|->{}),(10|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addRequest",
+   "description": "add a request to AMAN to add a plane to the landing sequence",
+   "params": {
+        "mMax": "1",
+        "nhMin": "0",
+        "l": "Elements4",
+        "hMax": "1",
+        "nmMin": "1",
+        "t": "10"
+     },
+   "destState": {
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "blockedZones_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "20",
+        "nt": "20",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "20",
+        "nh": "0",
+        "nm": "0",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{})}",
+        "curTimeS": "20",
+        "diplayedLabels": "{Elements4}",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addBlockedZone",
+   "description": "block a time slot",
+   "params": {
+        "h": "0",
+        "m": "4",
+        "t": "20"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addBlockedZone",
+   "description": "block a time slot",
+   "params": {
+        "h": "0",
+        "m": "5",
+        "t": "20"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->3)}",
+        "landingLabs": "{}",
+        "ns": "30",
+        "nt": "30",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "30",
+        "nh": "0",
+        "nm": "0",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(4|->0),(5|->0)})}",
+        "curTimeS": "30",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addBlockedZone",
+   "description": "block a time slot",
+   "params": {
+        "h": "0",
+        "m": "3",
+        "t": "30"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(3|->0),(4|->0),(5|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addBlockedZone",
+   "description": "block a time slot",
+   "params": {
+        "h": "0",
+        "m": "2",
+        "t": "30"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(2|->0),(3|->0),(4|->0),(5|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addBlockedZone",
+   "description": "block a time slot",
+   "params": {
+        "h": "0",
+        "m": "1",
+        "t": "30"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "40",
+        "nt": "40",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "40",
+        "nh": "0",
+        "nm": "0",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "40",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "50",
+        "nt": "50",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "50",
+        "nh": "0",
+        "nm": "0",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "50",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "0",
+        "nt": "60",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "60",
+        "nh": "0",
+        "nm": "1",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeM": "1",
+        "curTimeS": "0",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "10",
+        "nt": "70",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "70",
+        "nh": "0",
+        "nm": "1",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "10",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "20",
+        "nt": "80",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "80",
+        "nh": "0",
+        "nm": "1",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "20",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "30",
+        "nt": "90",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "90",
+        "nh": "0",
+        "nm": "1",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "30",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "40",
+        "nt": "100",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "100",
+        "nh": "0",
+        "nm": "1",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "40",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "50",
+        "nt": "110",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "110",
+        "nh": "0",
+        "nm": "1",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "50",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "0",
+        "nt": "120",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "120",
+        "nh": "0",
+        "nm": "2",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeM": "2",
+        "curTimeS": "0",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "10",
+        "nt": "130",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "130",
+        "nh": "0",
+        "nm": "2",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)})}",
+        "curTimeS": "10",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "deleteBlockedZone",
+   "description": "unblock a time slot",
+   "params": {
+        "h": "0",
+        "m": "5",
+        "t": "130"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "20",
+        "nt": "140",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "140",
+        "nh": "0",
+        "nm": "2",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)})}",
+        "curTimeS": "20",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->6)}",
+        "landingLabs": "{}",
+        "ns": "30",
+        "nt": "150",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "150",
+        "nh": "0",
+        "nm": "2",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(4|->0)})}",
+        "curTimeS": "30",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "deleteBlockedZone",
+   "description": "unblock a time slot",
+   "params": {
+        "h": "0",
+        "m": "4",
+        "t": "150"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addBlockedZone",
+   "description": "block a time slot",
+   "params": {
+        "h": "0",
+        "m": "6",
+        "t": "150"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "40",
+        "nt": "160",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "160",
+        "nh": "0",
+        "nm": "2",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)})}",
+        "curTimeS": "40",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "50",
+        "nt": "170",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "170",
+        "nh": "0",
+        "nm": "2",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)})}",
+        "curTimeS": "50",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "0",
+        "nt": "180",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "180",
+        "nh": "0",
+        "nm": "3",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)}),(180|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)}),(180|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(6|->0)})}",
+        "curTimeM": "3",
+        "curTimeS": "0",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addLabel",
+   "description": "add a plane",
+   "params": {
+        "l": "Elements13",
+        "t": "180"
+     },
+   "destState": {
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4,Elements13})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "blockedZones_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "addBlockedZone",
+   "description": "block a time slot",
+   "params": {
+        "h": "0",
+        "m": "5",
+        "t": "180"
+     },
+   "destState": {
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)})}"
+     },
+   "destStateNotChanged": [
+        "arrivalH_T",
+        "arrivalM_T",
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "curTimeS",
+        "diplayedLabels",
+        "holdLabels_T",
+        "isStopped",
+        "labels_T",
+        "mousePosition",
+        "mouseState",
+        "newArrivalH_T",
+        "newArrivalM_T",
+        "requests_T",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "10",
+        "nt": "190",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "190",
+        "nh": "0",
+        "nm": "3",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)}),(180|->{(Elements4|->0)}),(190|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)}),(180|->{(Elements4|->4)}),(190|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(190|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)})}",
+        "curTimeS": "10",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4,Elements13}),(190|->{Elements4,Elements13})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "20",
+        "nt": "200",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "200",
+        "nh": "0",
+        "nm": "3",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)}),(180|->{(Elements4|->0)}),(190|->{(Elements4|->0)}),(200|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)}),(180|->{(Elements4|->4)}),(190|->{(Elements4|->4)}),(200|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(190|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(200|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)})}",
+        "curTimeS": "20",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4,Elements13}),(190|->{Elements4,Elements13}),(200|->{Elements4,Elements13})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "30",
+        "nt": "210",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "210",
+        "nh": "0",
+        "nm": "3",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)}),(180|->{(Elements4|->0)}),(190|->{(Elements4|->0)}),(200|->{(Elements4|->0)}),(210|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)}),(180|->{(Elements4|->4)}),(190|->{(Elements4|->4)}),(200|->{(Elements4|->4)}),(210|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(190|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(200|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(210|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)})}",
+        "curTimeS": "30",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4,Elements13}),(190|->{Elements4,Elements13}),(200|->{Elements4,Elements13}),(210|->{Elements4,Elements13})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "40",
+        "nt": "220",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "220",
+        "nh": "0",
+        "nm": "3",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)}),(180|->{(Elements4|->0)}),(190|->{(Elements4|->0)}),(200|->{(Elements4|->0)}),(210|->{(Elements4|->0)}),(220|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)}),(180|->{(Elements4|->4)}),(190|->{(Elements4|->4)}),(200|->{(Elements4|->4)}),(210|->{(Elements4|->4)}),(220|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(190|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(200|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(210|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(220|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)})}",
+        "curTimeS": "40",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4,Elements13}),(190|->{Elements4,Elements13}),(200|->{Elements4,Elements13}),(210|->{Elements4,Elements13}),(220|->{Elements4,Elements13})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{(Elements4|->4)}",
+        "landingLabs": "{}",
+        "ns": "50",
+        "nt": "230",
+        "labsSch": "{Elements4}",
+        "toDisp": "{Elements4}",
+        "t": "230",
+        "nh": "0",
+        "nm": "3",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)}),(180|->{(Elements4|->0)}),(190|->{(Elements4|->0)}),(200|->{(Elements4|->0)}),(210|->{(Elements4|->0)}),(220|->{(Elements4|->0)}),(230|->{(Elements4|->0)})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)}),(180|->{(Elements4|->4)}),(190|->{(Elements4|->4)}),(200|->{(Elements4|->4)}),(210|->{(Elements4|->4)}),(220|->{(Elements4|->4)}),(230|->{(Elements4|->4)})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(190|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(200|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(210|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(220|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(230|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)})}",
+        "curTimeS": "50",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4,Elements13}),(190|->{Elements4,Elements13}),(200|->{Elements4,Elements13}),(210|->{Elements4,Elements13}),(220|->{Elements4,Elements13}),(230|->{Elements4,Elements13})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "curTimeM",
+        "diplayedLabels",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   },
+   {
+   "name": "display",
+   "description": "update display after autonomous AMAN updates",
+   "params": {
+        "arr": "{}",
+        "landingLabs": "{Elements4}",
+        "ns": "0",
+        "nt": "240",
+        "labsSch": "{}",
+        "toDisp": "{}",
+        "t": "240",
+        "nh": "0",
+        "nm": "4",
+        "canBeMoved": "{}"
+     },
+   "destState": {
+        "arrivalH_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->0)}),(30|->{(Elements4|->0)}),(40|->{(Elements4|->0)}),(50|->{(Elements4|->0)}),(60|->{(Elements4|->0)}),(70|->{(Elements4|->0)}),(80|->{(Elements4|->0)}),(90|->{(Elements4|->0)}),(100|->{(Elements4|->0)}),(110|->{(Elements4|->0)}),(120|->{(Elements4|->0)}),(130|->{(Elements4|->0)}),(140|->{(Elements4|->0)}),(150|->{(Elements4|->0)}),(160|->{(Elements4|->0)}),(170|->{(Elements4|->0)}),(180|->{(Elements4|->0)}),(190|->{(Elements4|->0)}),(200|->{(Elements4|->0)}),(210|->{(Elements4|->0)}),(220|->{(Elements4|->0)}),(230|->{(Elements4|->0)}),(240|->{})}",
+        "arrivalM_T": "{(0|->{}),(10|->{}),(20|->{(Elements4|->4)}),(30|->{(Elements4|->3)}),(40|->{(Elements4|->6)}),(50|->{(Elements4|->6)}),(60|->{(Elements4|->6)}),(70|->{(Elements4|->6)}),(80|->{(Elements4|->6)}),(90|->{(Elements4|->6)}),(100|->{(Elements4|->6)}),(110|->{(Elements4|->6)}),(120|->{(Elements4|->6)}),(130|->{(Elements4|->6)}),(140|->{(Elements4|->6)}),(150|->{(Elements4|->6)}),(160|->{(Elements4|->4)}),(170|->{(Elements4|->4)}),(180|->{(Elements4|->4)}),(190|->{(Elements4|->4)}),(200|->{(Elements4|->4)}),(210|->{(Elements4|->4)}),(220|->{(Elements4|->4)}),(230|->{(Elements4|->4)}),(240|->{})}",
+        "blockedZones_T": "{(0|->{}),(10|->{}),(20|->{(4|->0),(5|->0)}),(30|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(40|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(50|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(60|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(70|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(80|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(90|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(100|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(110|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(120|->{(1|->0),(2|->0),(3|->0),(4|->0),(5|->0)}),(130|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(140|->{(1|->0),(2|->0),(3|->0),(4|->0)}),(150|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(160|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(170|->{(1|->0),(2|->0),(3|->0),(6|->0)}),(180|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(190|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(200|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(210|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(220|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(230|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)}),(240|->{(1|->0),(2|->0),(3|->0),(5|->0),(6|->0)})}",
+        "curTimeM": "4",
+        "curTimeS": "0",
+        "diplayedLabels": "{}",
+        "holdLabels_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{}),(240|->{})}",
+        "labels_T": "{(0|->{Elements4}),(10|->{Elements4}),(20|->{Elements4}),(30|->{Elements4}),(40|->{Elements4}),(50|->{Elements4}),(60|->{Elements4}),(70|->{Elements4}),(80|->{Elements4}),(90|->{Elements4}),(100|->{Elements4}),(110|->{Elements4}),(120|->{Elements4}),(130|->{Elements4}),(140|->{Elements4}),(150|->{Elements4}),(160|->{Elements4}),(170|->{Elements4}),(180|->{Elements4,Elements13}),(190|->{Elements4,Elements13}),(200|->{Elements4,Elements13}),(210|->{Elements4,Elements13}),(220|->{Elements4,Elements13}),(230|->{Elements4,Elements13}),(240|->{Elements4,Elements13})}",
+        "newArrivalH_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{}),(240|->{})}",
+        "newArrivalM_T": "{(0|->{}),(10|->{}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{}),(240|->{})}",
+        "requests_T": "{(0|->{}),(10|->{(1|->Elements4)}),(20|->{}),(30|->{}),(40|->{}),(50|->{}),(60|->{}),(70|->{}),(80|->{}),(90|->{}),(100|->{}),(110|->{}),(120|->{}),(130|->{}),(140|->{}),(150|->{}),(160|->{}),(170|->{}),(180|->{}),(190|->{}),(200|->{}),(210|->{}),(220|->{}),(230|->{}),(240|->{})}"
+     },
+   "destStateNotChanged": [
+        "clickedElement",
+        "curTimeH",
+        "isStopped",
+        "mousePosition",
+        "mouseState",
+        "selectedElement",
+        "zoomLevel"
+     ]
+   }
+  ],
+ "metadata": {
+  "fileType": "Trace",
+  "formatVersion": 1,
+  "savedAt": "2024-02-09T10:49:56Z",
+  "creator": "tcltk (leuschel)",
+  "proBCliVersion": "1.13.0-nightly",
+  "proBCliRevision": "78230569c32c2c00c4734a111227f4577e6900cd",
+  "modelName": "M8",
+  "modelFile": "/Users/leuschel/git_root/prob_examples/examples/EventBPrologPackages/ABZ2023/Mammar_v19/M8_mch.eventb"
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "svg":"AMAN.svg",
+  "model-name": "M8",
+  "svg_objects" : [
+    {
+      "svg_class":"text",
+      "id":"mouseState_text",
+      "x":"600",
+      "y":"25",
+      "text":"mouseStatus"
+    }
+  ],
+  "definitions": [ 
+    { "name":"known_planes",
+      "value" : "Labels"
+    },
+    { "name":"visible_planes",
+      "value" : "diplayedLabels"
+    },
+    { "name": "no_airplane_is_selected",
+      "value": "bool(selectedElement=nothing)"
+    },
+    { "name":"holdLabels",
+      "value" : "union(ran(holdLabels_T))"
+    },
+    { "name": "selected_airplane_is_held",
+      "value": "bool(selectedElement:holdLabels)"
+    },
+    { "name": "currentTime",
+      "value": "curTimeM + curTimeH*60"
+    },
+    { "name": "curTime",
+      "value": "%(curM,curH).(curM:INTEGER & curH:INTEGER|curM+curH*60)",
+      "comment":"direct definition from theory"
+    },
+    
+    { "name": "Airplanes",
+      "value": "Elements - {nothing,hold,zoom}",
+      "comment": "Remove special elements; the rest are planes"
+    },
+    { "name": "NrAirplanes",
+      "value": "min({15,card(Airplanes)})"
+    },
+    
+    
+    { "name": "AIRPLANE",
+      "value": "SORT(Airplanes)",
+      "comment": "SORT is an external function; first two elements of Elements are nothing and hold which are removed here"
+    },
+    { "name": "held_airplanes",
+      "value": "holdLabels"
+    },
+    { "name": "arrivalH",
+      "value": "arrivalH_T(curTimeSec(curTimeS,curTimeM,curTimeH))"
+    },
+    { "name": "arrivalM",
+      "value": "arrivalM_T(curTimeSec(curTimeS,curTimeM,curTimeH))"
+    },
+    { "name": "landing_sequence",
+      "value": "%plane.(plane:dom(arrivalH)| arrivalH(plane)*60+arrivalM(plane) - currentTime+1)"
+    },
+    { "name": "blockedZones",
+      "value": "blockedZones_T(curTimeSec(curTimeS,curTimeM,curTimeH))"
+    },
+    { "name": "blockedTime",
+      "value": "{block| #(m,h).((m,h):blockedZones & curTime(m,h) - currentTime = block) & block : 0..45}",
+      "comment": "Convert blockedZones (hours|->mins) pairs into minutes"
+    },
+    { "name":"timeout",
+      "value" : "isStopped",
+      "comment": "This seems to correspond to AMAN timeout"
+    },
+    { "name": "TIME_SLOT_HEIGHT_BY_ZOOM",
+      "value": "{(15↦42),(20↦33),(25↦27),(30↦23),(35↦19),(40↦18),(45↦15)}",
+      "comment": "Taken from M10 context of other AMAN model"
+    },
+    { "name": "TIME_YS_BY_ZOOM",
+      "value": "{(15↦{(1↦713),(2↦671),(3↦629),(4↦587),(5↦545),(6↦503),(7↦461),(8↦419),(9↦377),(10↦335),(11↦293),(12↦251),(13↦209),(14↦167),(15↦125)}),(20↦{(1↦722),(2↦689),(3↦656),(4↦623),(5↦590),(6↦557),(7↦524),(8↦491),(9↦458),(10↦425),(11↦392),(12↦359),(13↦326),(14↦293),(15↦260),(16↦227),(17↦194),(18↦161),(19↦128),(20↦95)}),(25↦{(1↦728),(2↦701),(3↦674),(4↦647),(5↦620),(6↦593),(7↦566),(8↦539),(9↦512),(10↦485),(11↦458),(12↦431),(13↦404),(14↦377),(15↦350),(16↦323),(17↦296),(18↦269),(19↦242),(20↦215),(21↦188),(22↦161),(23↦134),(24↦107),(25↦80)}),(30↦{(1↦732),(2↦709),(3↦686),(4↦663),(5↦640),(6↦617),(7↦594),(8↦571),(9↦548),(10↦525),(11↦502),(12↦479),(13↦456),(14↦433),(15↦410),(16↦387),(17↦364),(18↦341),(19↦318),(20↦295),(21↦272),(22↦249),(23↦226),(24↦203),(25↦180),(26↦157),(27↦134),(28↦111),(29↦88),(30↦65)}),(35↦{(1↦736),(2↦717),(3↦698),(4↦679),(5↦660),(6↦641),(7↦622),(8↦603),(9↦584),(10↦565),(11↦546),(12↦527),(13↦508),(14↦489),(15↦470),(16↦451),(17↦432),(18↦413),(19↦394),(20↦375),(21↦356),(22↦337),(23↦318),(24↦299),(25↦280),(26↦261),(27↦242),(28↦223),(29↦204),(30↦185),(31↦166),(32↦147),(33↦128),(34↦109),(35↦90)}),(40↦{(1↦737),(2↦719),(3↦701),(4↦683),(5↦665),(6↦647),(7↦629),(8↦611),(9↦593),(10↦575),(11↦557),(12↦539),(13↦521),(14↦503),(15↦485),(16↦467),(17↦449),(18↦431),(19↦413),(20↦395),(21↦377),(22↦359),(23↦341),(24↦323),(25↦305),(26↦287),(27↦269),(28↦251),(29↦233),(30↦215),(31↦197),(32↦179),(33↦161),(34↦143),(35↦125),(36↦107),(37↦89),(38↦71),(39↦53),(40↦35)}),(45↦{(1↦740),(2↦725),(3↦710),(4↦695),(5↦680),(6↦665),(7↦650),(8↦635),(9↦620),(10↦605),(11↦590),(12↦575),(13↦560),(14↦545),(15↦530),(16↦515),(17↦500),(18↦485),(19↦470),(20↦455),(21↦440),(22↦425),(23↦410),(24↦395),(25↦380),(26↦365),(27↦350),(28↦335),(29↦320),(30↦305),(31↦290),(32↦275),(33↦260),(34↦245),(35↦230),(36↦215),(37↦200),(38↦185),(39↦170),(40↦155),(41↦140),(42↦125),(43↦110),(44↦95),(45↦80)})}",
+      "comment": "Taken from M10 context of other AMAN model"
+    },
+    { "name": "TIME_SLOT_YS_BY_ZOOM",
+      "value": "TIME_YS_BY_ZOOM",
+      "comment": "Now seems identical"
+    }
+  ],
+   "items":[
+    {
+      "id":"mouseState_text",
+      "attr":"text",
+      "value":"\"mouse=\"^TO_STRING(mousePosition)^\",\"^TO_STRING(mouseState)^\",sel=\"^TO_STRING(selectedElement)^\",click=\"^TO_STRING(clickedElement)"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"ap_%0",
+      "attr":"visibility",
+      "value":"IF %0 : ran(landing_sequence) & zoomLevel >= %0 THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "for": {"from":1, "to":"NrAirplanes"},
+      "id":"tap_%0",
+      "attr":"visibility",
+      "value":"IF AIRPLANE(%0) : visible_planes THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "for": {"from":1, "to":"NrAirplanes"},
+      "id":"tap_%0",
+      "attr":"y",
+      "value":"IF AIRPLANE(%0) : visible_planes THEN 760 - landing_sequence(AIRPLANE(%0)) * TIME_SLOT_HEIGHT_BY_ZOOM(zoomLevel) ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"minute_%0",
+      "attr":"visibility",
+      "value":"IF %0 : ran(landing_sequence) & zoomLevel >= %0 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"this text field shows the minutes until landing"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"minute_%0",
+      "attr":"y",
+      "value":"IF %0 : ran(landing_sequence) & %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) + 5 ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":49},
+      "id":"line_left_%0",
+      "attr":"visibility",
+      "value":"IF %0 <= zoomLevel THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"line_left_%0",
+      "attr":"y1",
+      "value":"IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"line_left_%0",
+      "attr":"y2",
+      "value":"IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"line_right_%0",
+      "attr":"y1",
+      "value":"IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"line_right_%0",
+      "attr":"y2",
+      "value":"IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":49},
+      "id":"line_right_%0",
+      "attr":"visibility",
+      "value":"IF %0 <= zoomLevel THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "repeat": [5, 10, 15, 20, 25, 30, 35, 40, 45],
+      "id":"tx_%0",
+      "attr":"y",
+      "value":"IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END"
+    },
+    {
+      "repeat": [5, 10, 15, 20, 25, 30, 35, 40, 45],
+      "id":"tx_%0",
+      "attr":"visibility",
+      "value":"IF %0 <= zoomLevel THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"bl_%0",
+      "attr":"fill",
+      "value":"IF %0-1 : blockedTime THEN \"yellow\" ELSE \"#008000\" END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"bl_%0",
+      "attr":"visibility",
+      "value":"IF %0-1 <= zoomLevel THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"bl_%0",
+      "attr":"height",
+      "value":"TIME_SLOT_HEIGHT_BY_ZOOM(zoomLevel) - 2"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"bl_%0",
+      "attr":"y",
+      "value":"IF %0 : dom(TIME_SLOT_YS_BY_ZOOM(zoomLevel)) THEN TIME_SLOT_YS_BY_ZOOM(zoomLevel)(%0) + 1 ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"mv_%0",
+      "attr":"visibility",
+      "value":"IF %0 <= zoomLevel THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"mv_%0",
+      "attr":"height",
+      "value":"TIME_SLOT_HEIGHT_BY_ZOOM(zoomLevel) - 2"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"mv_%0",
+      "attr":"y",
+      "value":"IF %0 : dom(TIME_SLOT_YS_BY_ZOOM(zoomLevel)) THEN TIME_SLOT_YS_BY_ZOOM(zoomLevel)(%0) + 1 ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"rect_ap_%0",
+      "attr":"y",
+      "value":"IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) - 20 ELSE 0 END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"rect_ap_%0",
+      "attr":"stroke",
+      "value":"IF %0 : ran(landing_sequence) & landing_sequence~(%0) : held_airplanes THEN \"red\" ELSIF selectedElement:dom(landing_sequence) & %0 = landing_sequence(selectedElement) THEN \"gray\" ELSE \"black\" END"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"rect_ap_%0",
+      "attr":"stroke-width",
+      "value":"2"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"poly_ap_%0",
+      "attr":"points",
+      "value":"conc([\"300,\", INT_TO_STRING(IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END), \" 325,\", INT_TO_STRING(IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END + 20), \" 325,\", INT_TO_STRING(IF %0 : dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN TIME_YS_BY_ZOOM(zoomLevel)(%0) ELSE 0 END - 20)])"
+    },
+    {
+      "id": "bt_hold",
+      "attr": "visibility",
+      "value":"IF no_airplane_is_selected=TRUE THEN \"hidden\" ELSE \"visible\" END"
+    },
+    {
+      "id": "tx_hold",
+      "attr": "visibility",
+      "value":"IF no_airplane_is_selected=TRUE or selected_airplane_is_held=TRUE THEN \"hidden\" ELSE \"visible\" END"
+    },
+    {
+      "id": "zoom_slider",
+      "attr": "x",
+      "value": "708 + 40 * (zoomLevel/5 - 3)"
+    },
+    {
+      "id": "aman_timeout",
+      "attr": "visibility",
+      "value": "IF timeout = TRUE THEN \"visible\" ELSE \"hidden\" END"
+    },
+    {
+      "id": "curtime",
+      "attr": "text",
+      "value":"TO_STRING(curTimeH)^\"h \"^TO_STRING(curTimeM)^\"min \"^TO_STRING(curTimeS)"
+    },
+    {
+      "for": {"from":1, "to":"NrAirplanes"},
+      "id":"tap_%0",
+      "attr":"fill",
+      "value":"IF AIRPLANE(%0) = selectedElement THEN \"red\" ELSIF AIRPLANE(%0) = clickedElement THEN \"orange\" ELSIF AIRPLANE(%0) = mousePosition THEN \"yellow\" ELSE \"white\" END",
+      "comment" : "adapt colour of AIRPLANE%0 text according to selection, clicking or mouse position"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id":"minute_%0",
+      "attr":"fill",
+      "value":"IF selectedElement:dom(landing_sequence) & %0 = landing_sequence(selectedElement) THEN \"red\" ELSE \"white\" END",
+      "comment" : "adapt colour of remaining time text according to selection"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "repeat" : ["ap","rect_ap"],
+      "id":"%1_%0",
+      "attr":"fill",
+      "value":"IF selectedElement:dom(landing_sequence) & %0 = landing_sequence(selectedElement) THEN \"#202020\" ELSIF clickedElement:dom(landing_sequence) & %0 = landing_sequence(clickedElement) THEN \"#585858\" ELSIF mousePosition:dom(landing_sequence) & %0 = landing_sequence(mousePosition) THEN \"#303030\"  ELSE \"black\" END",
+      "comment" : "colour selected polygons if selected"
+    },
+    {
+      "id": "mouse_cursor",
+      "attr": "transform",
+      "value":"IF mousePosition=hold THEN \"translate(680,520)\" ELSIF mousePosition=zoom THEN \"translate(820,90)\" ELSIF mousePosition=nothing THEN \"\" ELSIF mousePosition:dom(landing_sequence) & landing_sequence(mousePosition):dom(TIME_YS_BY_ZOOM(zoomLevel)) THEN \"translate(350,\" ^ TO_STRING(TIME_YS_BY_ZOOM(zoomLevel)(landing_sequence(mousePosition))) ^ \")\" ELSE \"\" END"
+    }
+  ],
+  "events": [
+    {
+      "repeat": [15, 20, 25, 30, 35, 40, 45],
+      "id": "zoom_%0",
+      "event": "selectZoom",
+      "predicates" : ["zm=%0"]
+    },
+    {
+      "repeat": [15, 20, 25, 30, 35, 40, 45],
+      "id": "zoom_%0",
+      "event": "clickMouse",
+      "predicates" : ["mousePosition=zoom"]
+    },
+    {
+      "repeat": [15, 20, 25, 30, 35, 40, 45],
+      "id": "zoom_%0",
+      "event": "movingMouse",
+      "predicates" : ["pos=zoom"]
+    },
+    {
+      "repeat": [15, 20, 25, 30, 35, 40, 45],
+      "id": "zoom_%0",
+      "event": "realseMouse"
+    },
+    {
+      "id": "bt_hold",
+      "event": "holdLabel",
+      "hovers" : [{"id":"bt_hold", "attr":"fill", "enter":"gray", "leave":"black"}]
+    },
+    {
+      "id": "bt_hold",
+      "event": "removeholdLabel"
+    },
+    {
+      "id": "bt_hold",
+      "event": "clickMouse",
+      "predicates" : ["mousePosition=hold"]
+    },
+    {
+      "id": "bt_hold",
+      "event": "movingMouse",
+      "predicates" : [
+        "pos=hold"
+       ]
+    },
+    {
+      "id": "bt_hold",
+      "event": "realseMouse"
+    },
+    {
+      "id": "background",
+      "event": "movingMouse",
+      "predicates" : [
+        "pos=nothing"
+       ]
+    },
+    {
+      "id": "background",
+      "event": "realseMouse"
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id": "bl_%0",
+      "event": "addBlockedZone",
+      "predicates" : ["h:{curTimeH,curTimeH+1} & 1+ curTime(m,h) - currentTime = %0"]
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id": "bl_%0",
+      "event": "deleteBlockedZone",
+      "predicates" : ["h:{curTimeH,curTimeH+1} & 1+ curTime(m,h) - currentTime = %0"]
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id": "ap_%0",
+      "event": "clickMouse",
+      "hovers" : [{"id":"poly_ap_%0", "attr":"fill", "enter":"gray", "leave":"black"}],
+      "predicates" : [
+        "mousePosition|->%0:landing_sequence"
+       ]
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id": "ap_%0",
+      "event": "movingMouse",
+      "predicates" : [
+        "pos|->%0:landing_sequence"
+       ]
+    },
+    {
+      "for": {"from":1, "to":45},
+      "id": "ap_%0",
+      "event": "realseMouse"
+    },
+    {
+      "id": "curtime",
+      "event": "display",
+      "hovers" : [{"id":"curtime", "attr":"fill", "enter":"red", "leave":"white"}]
+    }
+  ]
+
+}
